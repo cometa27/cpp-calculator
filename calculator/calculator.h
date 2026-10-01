@@ -1,8 +1,21 @@
 #pragma once
-#include <iostream>
+#include <cmath>
 
-using Number = double;
+class Calculator {
+public:
+    Calculator();
+    
+    void SetNumber(double number);
+    double GetNumber() const;
+    
+    void Add(double arg);
+    void Sub(double arg);
+    void Mul(double arg);
+    void Div(double arg);
+    void Pow(double arg);
+    
+    void Clear();
 
-bool ReadNumber(Number& result);
-
-bool RunCalculatorCycle(); 
+private:
+    double current_number_;
+};
