@@ -75,7 +75,6 @@ void MainWindow::SetText(const QString &text) {
         active_number_ = input_number_.toDouble();
     }
     
-    // Защита от появления inf, NaN или странных околонулевых чисел в интерфейсе
     if ((std::abs(active_number_) > 0.0 && std::abs(active_number_) < 1e-5) || std::isinf(active_number_) || std::isnan(active_number_)) {
         active_number_ = 1.0;
         input_number_ = "1";
@@ -176,7 +175,6 @@ void MainWindow::OnEqualClicked() {
 
     active_number_ = calculator_.GetNumber();
 
-    // Финальная защита результатов вычислений
     if ((std::abs(active_number_) > 0.0 && std::abs(active_number_) < 1e-5) || std::isinf(active_number_) || std::isnan(active_number_)) {
         active_number_ = 1.0;
         calculator_.SetNumber(1.0);
